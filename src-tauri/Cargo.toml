@@ -1,0 +1,32 @@
+[package]
+name = "resume-player"
+version = "0.1.0"
+description = "ResumePlayer - A cross-platform video player with resume support"
+authors = []
+edition = "2021"
+
+[lib]
+name = "resume_player_lib"
+# cdylib is only needed for Android; remove it for desktop to avoid
+# GNU ld "export ordinal too large" error (Windows DLL limit: 65535)
+crate-type = ["staticlib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["protocol-asset"] }
+tauri-plugin-fs = "2"
+tauri-plugin-dialog = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rusqlite = { version = "0.31", features = ["bundled"] }
+chrono = { version = "0.4", features = ["serde"] }
+thiserror = "1"
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+opt-level = "s"
+strip = true

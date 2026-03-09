@@ -1,0 +1,40 @@
+name: Bug report
+description: Report a reproducible defect in ResumePlayer
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What happened, and what did you expect instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Provide exact steps so the issue can be reproduced.
+      placeholder: |
+        1. Open a video
+        2. Seek to a timestamp
+        3. Restart the app
+        4. Observe the restored position
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include OS version, app version, and media format if relevant.
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
+      description: Screenshots, logs, or other context.
